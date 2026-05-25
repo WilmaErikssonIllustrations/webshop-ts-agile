@@ -1,12 +1,12 @@
 import { Product } from "../models/Product";
 
-//funktion skapar html för produktkorten
+
 export const createProductCard = (product: Product): HTMLDivElement => {
     const card: HTMLDivElement = document.createElement("div");
     card.className = "productCard";
     card.setAttribute("data-category", product.category);
 
-    // Fyller produktkortet med information från produkten
+    
     card.innerHTML = `
         <div class="productCardImageContainer">
             <img 
@@ -27,7 +27,7 @@ export const createProductCard = (product: Product): HTMLDivElement => {
     return card;
 };
 
-//funktion som placerar dem rätt på produktsidan
+
 export const createHtmlProductPage = (
     products: Product[]
 ): HTMLDivElement => {
@@ -43,10 +43,10 @@ export const createHtmlProductPage = (
 
     `;
 
-    //JESPER: den här variabeln används inte, ta bort?
-    // const productGrid0 = productPageContainer.querySelector(
-    //     "#productCardGrid0"
-    // ) as HTMLDivElement;
+    
+    
+    
+    
 
     const productGrid = productPageContainer.querySelector(
         "#productCardGrid"
@@ -56,7 +56,7 @@ export const createHtmlProductPage = (
         "#productCardGrid2"
     ) as HTMLDivElement;
 
-    // första 4 produktkorten
+    
     products.slice(0, 4).forEach(product => {
         productGrid.appendChild(createProductCard(product));
 
@@ -66,9 +66,9 @@ export const createHtmlProductPage = (
     if (showMoreBtnContainer !== null) {
         productGrid.appendChild(showMoreBtnContainer)
     };
-    // sista produkterna i grid2
+    
     products.slice(4, 15).forEach(product => {
-        const card = createProductCard(product);
+        createProductCard(product);
         productGrid2.appendChild(createProductCard(product));
     });
 

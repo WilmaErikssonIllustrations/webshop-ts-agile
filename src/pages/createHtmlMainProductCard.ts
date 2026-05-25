@@ -1,7 +1,7 @@
 import { showProductDetails } from "../components/showProductDetails";
 import { products } from "../data/products";
 
-// Funktion som skapar HTML för huvudproduktkortet
+
 export const createHtmlMainProductCard = () => {
     const main = document.getElementById("main");
   
@@ -24,7 +24,7 @@ export const createHtmlMainProductCard = () => {
     button.id = "buyBtnBig";
     button.innerHTML = "Köp";
 
-    // Funktion för att visa produktdetaljer vid klick på produktnamnet
+    
     productName.addEventListener("click", () => {
       showProductDetails(products[i]);
     });

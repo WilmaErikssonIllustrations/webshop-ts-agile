@@ -3,23 +3,23 @@ import type { CartItem } from "../models/CartItem";
 import { saveCart, loadCart } from "./cartStorage";
 import { createHtmlCartItems } from "../pages/createHtmlCartItems";
 
-// Funktion för att lägga till en produkt i kundvagnen
-export const addToCart = (product: Product): CartItem[] => { // Tar emot en produkt som parameter
-  const cart = loadCart(); // Ladda den nuvarande kundvagnen
-  
-  const existingItem = cart.find(item => item.product.name === product.name); // Kontrollera om produkten redan finns i kundvagnen
 
-  if (existingItem) { // Om produkten finns, öka kvantiteten
-    existingItem.quantity += 1; // Öka kvantiteten med 1
+export const addToCart = (product: Product): CartItem[] => { 
+  const cart = loadCart(); 
+  
+  const existingItem = cart.find(item => item.product.name === product.name); 
+
+  if (existingItem) { 
+    existingItem.quantity += 1; 
   } else { 
-    cart.push({ // Om produkten inte finns, lägg till den med kvantitet 1
-      product: product, // Använd produktobjektet som skickades in
-      quantity: 1 // Starta med kvantitet 1
+    cart.push({ 
+      product: product, 
+      quantity: 1 
     });
   }
 
-  saveCart(cart); // Spara den uppdaterade kundvagnen
-  createHtmlCartItems(cart);  // Uppdatera HTML:en
+  saveCart(cart); 
+  createHtmlCartItems(cart);  
   
-  return cart; // Returnera den uppdaterade kundvagnen
+  return cart; 
 };

@@ -7,22 +7,22 @@ import { renderEmptyCart } from "../components/renderEmptyCart";
 import type { CartItem } from "../models/CartItem";
 
 
-// Funktion som skapar HTML för varukorgsartiklar
+
 export const createHtmlCartItems = (shoppingCart: CartItem[]) => {
-  // Tar in varukorgen som parameter och skapar HTML-element för varje artikel
+  
   const cartItemsContainer = document.getElementById(
     "cartItems"
   ) as HTMLDivElement;
   
-  if (!cartItemsContainer) return; // Om containern inte finns, avsluta funktionen
+  if (!cartItemsContainer) return; 
   
-  cartItemsContainer.innerHTML = ""; // Rensar innehållet i cartItemsContainer
+  cartItemsContainer.innerHTML = ""; 
   
   renderEmptyCart(shoppingCart);
 
-  // Loopar igenom varje artikel i varukorgen och skapar HTML-element
+  
   shoppingCart.forEach((item, index) => {
-    const cartItem = document.createElement("div"); //Skapar ett cart item
+    const cartItem = document.createElement("div"); 
     cartItem.className = "cartItem";
 
     const cartProduct = renderCartProducts(item);
@@ -39,14 +39,14 @@ export const createHtmlCartItems = (shoppingCart: CartItem[]) => {
       createHtmlCartItems
     );
 
-    // Bygger ihop hela kortet
+    
     cartItem.appendChild(cartProduct);
     cartItem.appendChild(cartQuantity);
     cartItem.appendChild(cartPrice);
     cartItem.appendChild(cartRemove);
 
     cartItemsContainer.appendChild(cartItem);
-  }); // Hit går shoppingCart.forEach
+  }); 
 
   initCartSum(shoppingCart);
 };

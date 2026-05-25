@@ -1,6 +1,6 @@
 import type { CartItem } from "../models/CartItem";
 
-// hämtar totalantal från varukorgen och anger total till varukorgs-ikonen och uppdaterar
+
 export const updateCartBadge = (shoppingCart: CartItem[]) => {
     const totalQuantity = shoppingCart.reduce(
         (sum, item) => sum + item.quantity,
@@ -10,7 +10,7 @@ export const updateCartBadge = (shoppingCart: CartItem[]) => {
     const cartIcons = document.getElementsByClassName("cartIcon");
 
     Array.from(cartIcons).forEach((icon) => {
-        // ta bort gammal badge
+        
         icon.querySelector(".shoppingCartNumberContainer")?.remove();
 
         if (totalQuantity > 0) {
